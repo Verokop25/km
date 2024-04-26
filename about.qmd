@@ -1,0 +1,5 @@
+---
+title: "About"
+---
+
+Blog to show my projects for Information Management, Spring 24.
