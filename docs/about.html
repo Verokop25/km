@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Information Management - About</title>
+<title>Information Management - Assigments</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -87,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./about.html" rel="" target="" aria-current="page">
- <span class="menu-text">About</span></a>
+ <span class="menu-text">Assigments</span></a>
   </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
@@ -101,14 +101,24 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#assignment-1" id="toc-assignment-1" class="nav-link active" data-scroll-target="#assignment-1">Assignment 1</a></li>
+  <li><a href="#assignment-2" id="toc-assignment-2" class="nav-link" data-scroll-target="#assignment-2">Assignment 2</a></li>
+  <li><a href="#assignment-3" id="toc-assignment-3" class="nav-link" data-scroll-target="#assignment-3">Assignment 3</a></li>
+  <li><a href="#assignment-4" id="toc-assignment-4" class="nav-link" data-scroll-target="#assignment-4">Assignment 4</a></li>
+  <li><a href="#assignment-5" id="toc-assignment-5" class="nav-link" data-scroll-target="#assignment-5">Assignment 5</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Assigments</h1>
 </div>
 
 
@@ -123,9 +133,79 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Blog to show my projects for Information Management, Spring 24.</p>
+<section id="assignment-1" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-1">Assignment 1</h2>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR6ZxRZizo6AtTs_4ln7472DOEXbLdQ2oP12-tEqI1c6256Sb13wGNYim-GrHgZUxuBWVSynlzFAvQI/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+</iframe>
+</section>
+<section id="assignment-2" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-2">Assignment 2</h2>
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQU0QN_mcruQqvjpqUB4HubFYaqgPyVSsevJTg1YmM1E1E_Ujhy_0k2oLn-2_FMIFG9h37hfIjpOyVG/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+</iframe>
+</section>
+<section id="assignment-3" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-3">Assignment 3</h2>
+<section id="write-sql-codes-to-get-a-list-of" class="level4">
+<h4 class="anchored" data-anchor-id="write-sql-codes-to-get-a-list-of">2. Write SQL codes to get a list of:</h4>
+<p>i. Students IDs (hint: from the <strong>takes</strong> relation)</p>
+<p>SELECT DISTINCT ID FROM takes;</p>
+<p>ii. Instructors</p>
+<p>SELECT ID, name, dept_name, salary FROM instructor;</p>
+<p>iii. Departments</p>
+<p>SELECT dept_name, building, budget FROM department;</p>
+</section>
+<section id="section" class="level4">
+<h4 class="anchored" data-anchor-id="section"></h4>
+<ol start="2" type="1">
+<li>Write in SQL codes to do following queries:</li>
+</ol>
+<p>i. SELECT DISTINCT s.ID, s.name FROM student s JOIN takes t ON s.ID = t.ID JOIN course c ON t.course_id = c.course_id WHERE c.dept_name = ‘Comp. Sci.’;</p>
+<p>ii.</p>
+<p>SELECT DISTINCT s.ID, s.name, t.grade FROM student s JOIN takes t ON s.ID = t.ID JOIN course c ON t.course_id = c.course_id WHERE c.dept_name = ‘Comp. Sci.’;</p>
+<p>iii.</p>
+<p>SELECT s.ID, s.name FROM student s WHERE NOT EXISTS ( SELECT 1 FROM takes t JOIN section sec ON t.course_id = sec.course_id AND t.sec_id = sec.sec_id AND t.semester = sec.semester AND t.year = sec.year WHERE t.ID = s.ID AND sec.year &lt; 2017</p>
+<p>);</p>
+<p>iv.</p>
+<p>SELECT dept_name, MAX(salary) AS max_salary FROM instructor GROUP BY dept_name;</p>
+<p>v.</p>
+<p>SELECT MIN(max_salary) AS lowest_max_salary FROM ( SELECT MAX(salary) AS max_salary FROM instructor GROUP BY dept_name ) AS department_max_salaries;</p>
+<p>vi.</p>
+<p>SELECT dept_name, MAX(salary) AS max_salary FROM instructor GROUP BY dept_name HAVING MAX(salary) = ( SELECT MIN(max_salary) FROM ( SELECT MAX(salary) AS max_salary FROM instructor GROUP BY dept_name ) AS department_max_salaries</p>
+<ol start="4" type="1">
+<li></li>
+</ol>
+<p>SELECT DISTINCT i.ID, i.name FROM instructor i LEFT JOIN teaches t ON i.ID = t.ID LEFT JOIN takes tk ON t.course_id = tk.course_id AND t.sec_id = tk.sec_id AND t.semester = tk.semester AND t.year = tk.year WHERE tk.grade &lt;&gt; ‘A’ OR tk.grade</p>
+</section>
+</section>
+<section id="assignment-4" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-4">Assignment 4</h2>
+<p>1.</p>
+<p>A strong entity is an entry that can be use a unit way to identify a subject. That is not going to be used or share to as an entry for an other value. No duplication. For example ID, or email address.</p>
+<p>A weak entry is the opposite, it can not be uniquely identify. For example a persons first name because some other person could have the same name.</p>
+<p>2.</p>
+<ul>
+<li><p><strong>Player</strong></p>
+<p>Player ID (PK)</p>
+<p>Name</p>
+<p>Positon</p></li>
+<li><p><strong>Game</strong></p>
+<p>GameID (PK)</p>
+<p>Date</p>
+<p>Location</p>
+<p>TeamID (FK)</p></li>
+<li><p><strong>Team</strong></p>
+<p>TeamID (PK)</p>
+<p>Team Name</p></li>
+</ul>
+<p>3.</p>
+<p>b) SELECT s.ID FROM student s LEFT JOIN takes t ON s.ID = t.ID</p>
+<p>c) SELECT e.ID FROM employee e NATURAL LEFT JOIN manages m WHERE m.manager_id IS NULL;</p>
+</section>
+<section id="assignment-5" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-5">Assignment 5</h2>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

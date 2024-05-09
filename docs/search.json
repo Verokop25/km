@@ -2,9 +2,9 @@
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "Assigments",
     "section": "",
-    "text": "Blog to show my projects for Information Management, Spring 24."
+    "text": "Assignment 1\n\n\n\n\nAssignment 2\n\n\n\n\nAssignment 3\nHere is where I”m writing my A3\n\n\nAssignment 4"
   },
   {
     "objectID": "index.html",
@@ -12,5 +12,40 @@
     "title": "Veronica Kopper",
     "section": "",
     "text": "Building a Sustainable Future Together by Veronica Kopper\n\n\n&lt;iframe&gt;\n&lt;iframe src=\"https://docs.google.com/presentation/d/e/2PACX-1vRQV_xQUHUau5FMLeSdWhXdwZPTGkyyP9IkXShWblxzMaOVP6y2nUoAkoMKRqR1AQNiMt4EgxH2aBjF/embed?start=false&amp;loop=false&amp;delayms=3000\" frameborder=\"0\" width=\"960\" height=\"569\" allowfullscreen=\"true\" mozallowfullscreen=\"true\" webkitallowfullscreen=\"true\"&gt;"
+  },
+  {
+    "objectID": "Assigments.html",
+    "href": "Assigments.html",
+    "title": "Assigments",
+    "section": "",
+    "text": "Assignment 1\n\n\n\n\nAssignment 2\n\n\n\n\nAssignment 3\nHere is where I”m writing my A3\n\n\nAssignment 4"
+  },
+  {
+    "objectID": "about.html#assignment-3",
+    "href": "about.html#assignment-3",
+    "title": "Assigments",
+    "section": "Assignment 3",
+    "text": "Assignment 3\n\n2. Write SQL codes to get a list of:\ni. Students IDs (hint: from the takes relation)\nSELECT DISTINCT ID FROM takes;\nii. Instructors\nSELECT ID, name, dept_name, salary FROM instructor;\niii. Departments\nSELECT dept_name, building, budget FROM department;\n\n\n\n\nWrite in SQL codes to do following queries:\n\ni. SELECT DISTINCT s.ID, s.name FROM student s JOIN takes t ON s.ID = t.ID JOIN course c ON t.course_id = c.course_id WHERE c.dept_name = ‘Comp. Sci.’;\nii.\nSELECT DISTINCT s.ID, s.name, t.grade FROM student s JOIN takes t ON s.ID = t.ID JOIN course c ON t.course_id = c.course_id WHERE c.dept_name = ‘Comp. Sci.’;\niii.\nSELECT s.ID, s.name FROM student s WHERE NOT EXISTS ( SELECT 1 FROM takes t JOIN section sec ON t.course_id = sec.course_id AND t.sec_id = sec.sec_id AND t.semester = sec.semester AND t.year = sec.year WHERE t.ID = s.ID AND sec.year &lt; 2017\n);\niv.\nSELECT dept_name, MAX(salary) AS max_salary FROM instructor GROUP BY dept_name;\nv.\nSELECT MIN(max_salary) AS lowest_max_salary FROM ( SELECT MAX(salary) AS max_salary FROM instructor GROUP BY dept_name ) AS department_max_salaries;\nvi.\nSELECT dept_name, MAX(salary) AS max_salary FROM instructor GROUP BY dept_name HAVING MAX(salary) = ( SELECT MIN(max_salary) FROM ( SELECT MAX(salary) AS max_salary FROM instructor GROUP BY dept_name ) AS department_max_salaries\n\n\n\nSELECT DISTINCT i.ID, i.name FROM instructor i LEFT JOIN teaches t ON i.ID = t.ID LEFT JOIN takes tk ON t.course_id = tk.course_id AND t.sec_id = tk.sec_id AND t.semester = tk.semester AND t.year = tk.year WHERE tk.grade &lt;&gt; ‘A’ OR tk.grade"
+  },
+  {
+    "objectID": "about.html#assignment-4",
+    "href": "about.html#assignment-4",
+    "title": "Assigments",
+    "section": "Assignment 4",
+    "text": "Assignment 4\n1.\nA strong entity is an entry that can be use a unit way to identify a subject. That is not going to be used or share to as an entry for an other value. No duplication. For example ID, or email address.\nA weak entry is the opposite, it can not be uniquely identify. For example a persons first name because some other person could have the same name.\n2.\n\nPlayer\nPlayer ID (PK)\nName\nPositon\nGame\nGameID (PK)\nDate\nLocation\nTeamID (FK)\nTeam\nTeamID (PK)\nTeam Name\n\n3.\nb) SELECT s.ID FROM student s LEFT JOIN takes t ON s.ID = t.ID\nc) SELECT e.ID FROM employee e NATURAL LEFT JOIN manages m WHERE m.manager_id IS NULL;"
+  },
+  {
+    "objectID": "about.html#assignment-2",
+    "href": "about.html#assignment-2",
+    "title": "Assigments",
+    "section": "Assignment 2",
+    "text": "Assignment 2"
+  },
+  {
+    "objectID": "about.html#assignment-5",
+    "href": "about.html#assignment-5",
+    "title": "Assigments",
+    "section": "Assignment 5",
+    "text": "Assignment 5"
   }
 ]

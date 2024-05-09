@@ -1,5 +1,105 @@
 ---
-title: "About"
+title: "Assigments"
 ---
 
-Blog to show my projects for Information Management, Spring 24.
+## Assignment 1
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vR6ZxRZizo6AtTs_4ln7472DOEXbLdQ2oP12-tEqI1c6256Sb13wGNYim-GrHgZUxuBWVSynlzFAvQI/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+
+</iframe>
+
+## Assignment 2
+
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQU0QN_mcruQqvjpqUB4HubFYaqgPyVSsevJTg1YmM1E1E_Ujhy_0k2oLn-2_FMIFG9h37hfIjpOyVG/embed?start=false&amp;loop=false&amp;delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true">
+
+</iframe>
+
+## Assignment 3
+
+#### 2. Write SQL codes to get a list of:
+
+i\. Students IDs (hint: from the **takes** relation)
+
+SELECT DISTINCT ID FROM takes;
+
+ii\. Instructors
+
+SELECT ID, name, dept_name, salary FROM instructor;
+
+iii\. Departments
+
+SELECT dept_name, building, budget FROM department;
+
+#### 
+
+2.  Write in SQL codes to do following queries:
+
+i\. SELECT DISTINCT s.ID, s.name FROM student s JOIN takes t ON s.ID = t.ID JOIN course c ON t.course_id = c.course_id WHERE c.dept_name = 'Comp. Sci.';
+
+ii\.
+
+SELECT DISTINCT s.ID, s.name, t.grade FROM student s JOIN takes t ON s.ID = t.ID JOIN course c ON t.course_id = c.course_id WHERE c.dept_name = 'Comp. Sci.';
+
+iii\.
+
+SELECT s.ID, s.name FROM student s WHERE NOT EXISTS ( SELECT 1 FROM takes t JOIN section sec ON t.course_id = sec.course_id AND t.sec_id = sec.sec_id AND t.semester = sec.semester AND t.year = sec.year WHERE t.ID = s.ID AND sec.year \< 2017
+
+);
+
+iv\.
+
+SELECT dept_name, MAX(salary) AS max_salary FROM instructor GROUP BY dept_name;
+
+v\.
+
+SELECT MIN(max_salary) AS lowest_max_salary FROM ( SELECT MAX(salary) AS max_salary FROM instructor GROUP BY dept_name ) AS department_max_salaries;
+
+vi\.
+
+SELECT dept_name, MAX(salary) AS max_salary FROM instructor GROUP BY dept_name HAVING MAX(salary) = ( SELECT MIN(max_salary) FROM ( SELECT MAX(salary) AS max_salary FROM instructor GROUP BY dept_name ) AS department_max_salaries
+
+4.  
+
+SELECT DISTINCT i.ID, i.name FROM instructor i LEFT JOIN teaches t ON i.ID = t.ID LEFT JOIN takes tk ON t.course_id = tk.course_id AND t.sec_id = tk.sec_id AND t.semester = tk.semester AND t.year = tk.year WHERE tk.grade \<\> 'A' OR tk.grade
+
+## Assignment 4
+
+1\.
+
+A strong entity is an entry that can be use a unit way to identify a subject. That is not going to be used or share to as an entry for an other value. No duplication. For example ID, or email address.
+
+A weak entry is the opposite, it can not be uniquely identify. For example a persons first name because some other person could have the same name.
+
+2\.
+
+-   **Player**
+
+    Player ID (PK)
+
+    Name
+
+    Positon
+
+-   **Game**
+
+    GameID (PK)
+
+    Date
+
+    Location
+
+    TeamID (FK)
+
+-   **Team**
+
+    TeamID (PK)
+
+    Team Name
+
+3\.
+
+b\) SELECT s.ID FROM student s LEFT JOIN takes t ON s.ID = t.ID
+
+c\) SELECT e.ID FROM employee e NATURAL LEFT JOIN manages m WHERE m.manager_id IS NULL;
+
+## Assignment 5
