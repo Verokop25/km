@@ -103,3 +103,29 @@ b\) SELECT s.ID FROM student s LEFT JOIN takes t ON s.ID = t.ID
 c\) SELECT e.ID FROM employee e NATURAL LEFT JOIN manages m WHERE m.manager_id IS NULL;
 
 ## Assignment 5
+
+1\.
+
+Viewing this diagram as a graph, and the graph element helps us to understand relationships better.
+
+a\) When the graph is discont it means there are two sets of entities and relationships that have no connections between them.
+
+b\) When the graph has a cycle it means that there is a way of how the relationships flows and is all connected.
+
+3\.
+
+Weak entity are used because they have dependent relationship with another. They also apply to real world for example names is a person name even if someone else have the same name. It is not necessary to make change them into strong entities as long as some strong ones build the relationship.
+
+4\.
+
+i\. SELECT e.ID, e.person_name FROM employee AS e JOIN works AS w ON e.ID = w.ID JOIN company AS c ON w.company_name = c.company_name WHERE e.city = c.city;
+
+ii\. SELECT e1.ID, e1.person_name FROM employee AS e1 JOIN manages AS m ON e1.ID = m.ID JOIN employee AS e2 ON m.manager_id = e2.ID WHERE e1.city = e2.city AND e1.street = e2.street;
+
+iii. SELECT e.ID, e.person_name FROM employee AS e JOIN works AS w ON e.ID = w.ID WHERE w.salary \> ( SELECT AVG(w2.salary) FROM works AS w2 WHERE w2.company_name =
+
+w.company_name);
+
+b\) NATURAL JOIN doesn't make it clear which columns are being used for joining. Also the way JOIN was written.
+
+## Assignment 6

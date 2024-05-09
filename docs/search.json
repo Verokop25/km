@@ -46,6 +46,13 @@
     "href": "about.html#assignment-5",
     "title": "Assigments",
     "section": "Assignment 5",
-    "text": "Assignment 5"
+    "text": "Assignment 5\n1.\nViewing this diagram as a graph, and the graph element helps us to understand relationships better.\na) When the graph is discont it means there are two sets of entities and relationships that have no connections between them.\nb) When the graph has a cycle it means that there is a way of how the relationships flows and is all connected.\n3.\nWeak entity are used because they have dependent relationship with another. They also apply to real world for example names is a person name even if someone else have the same name. It is not necessary to make change them into strong entities as long as some strong ones build the relationship.\n4.\ni. SELECT e.ID, e.person_name FROM employee AS e JOIN works AS w ON e.ID = w.ID JOIN company AS c ON w.company_name = c.company_name WHERE e.city = c.city;\nii. SELECT e1.ID, e1.person_name FROM employee AS e1 JOIN manages AS m ON e1.ID = m.ID JOIN employee AS e2 ON m.manager_id = e2.ID WHERE e1.city = e2.city AND e1.street = e2.street;\n\nSELECT e.ID, e.person_name FROM employee AS e JOIN works AS w ON e.ID = w.ID WHERE w.salary &gt; ( SELECT AVG(w2.salary) FROM works AS w2 WHERE w2.company_name =\n\nw.company_name);\nb) NATURAL JOIN doesn’t make it clear which columns are being used for joining. Also the way JOIN was written."
+  },
+  {
+    "objectID": "about.html#assignment-6",
+    "href": "about.html#assignment-6",
+    "title": "Assigments",
+    "section": "Assignment 6",
+    "text": "Assignment 6"
   }
 ]
